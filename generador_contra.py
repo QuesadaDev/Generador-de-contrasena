@@ -23,12 +23,17 @@ def generador(longitud: int, mayus: bool, numeros: bool, simbolos: bool):
 
 def generar_contra_interfaz(entry_longitud, var_mayusculas, var_numeros, var_simbolos):
 
-    longitu = int(entry_longitud.get())
+    longitu = 0
+    try:
+        longitu = int(entry_longitud.get())
+    except ValueError:
+        print("La longitud introducida debe ser un número")
+
     mayuscu = var_mayusculas.get() == 1
     numer = var_numeros.get() == 1
     simbolo = var_simbolos.get() == 1
 
-    contra = generador(longitu, mayuscu, numer, simbolo)
+    generador(longitu, mayuscu, numer, simbolo)
 
 
 def generar_interfaz():
@@ -63,6 +68,6 @@ def generar_interfaz():
 
 
 generar_interfaz()
-generador(12, True, True, True)
+
 
 
